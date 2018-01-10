@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
 # Install Homebrew
-# /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+if !which brew >/dev/null 2>&1; then
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
 
 # Install software via brew
 brew install $(xargs <lists/brew)
