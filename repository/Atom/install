@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# shellcheck source=lib/output
+. ${DOTFILES_PREFIX}/lib/output
+
+h1 "Atom"
+h2 "Install"
+
+if brew cask list | egrep -q '^atom$'; then
+  h3 "Already installed"
+  exit
+fi
+
+brew cask install atom
+
+apm install \
+  atom-gpg \
+  autocomplete-bash-builtins \
+  autocomplete-python \
+  build \
+  build-bazel \
+  busy-signal \
+  format-shell \
+  formatter \
+  formatter-gofmt \
+  formatter-json \
+  formatter-tidy \
+  git-plus \
+  go-imports \
+  hyperclick \
+  intentions \
+  language-ansible \
+  language-awk \
+  language-bazel \
+  language-cassandra-cql \
+  language-debian \
+  language-docker \
+  language-ini \
+  language-lua \
+  language-nginx \
+  language-rust \
+  language-source-cfg \
+  language-tmux \
+  linter \
+  linter-golinter \
+  linter-lua \
+  linter-py \
+  linter-shellcheck \
+  linter-ui-default
