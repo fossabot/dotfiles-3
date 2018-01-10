@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+echo "  › Settings"
+
+echo "    › Set custom folder to settings"
+defaults write com.googlecode.iterm2 "PrefsCustomFolder" -string "${DOTFILES_PREFIX}/repository/iTerm2/preferences"
+
+echo "    › Enable storing settings to custom folder"
+defaults write com.googlecode.iterm2 "LoadPrefsFromCustomFolder" -bool true

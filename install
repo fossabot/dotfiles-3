@@ -2,18 +2,21 @@
 
 set -euo pipefail
 
+# Since there's no `readlink -f` behaviour using perl/python is the only way to achieve full path
+export DOTFILES_PREFIX=$(dirname $(perl -MCwd -e 'print Cwd::abs_path shift' "$0"))
+
 # Install Homebrew
 if ! which brew >/dev/null 2>&1; then
-  ./repository/Homebrew/install
+  ${DOTFILES_PREFIX}/repository/Homebrew/install
 fi
 
-for app in $(ls -1 repository); do
-  [[ -x "./repository/${app}/install" ]] &&
-    ./repository/${app}/install
+for app in $(ls -1 ${DOTFILES_PREFIX}/repository); do
+  [[ -x "${DOTFILES_PREFIX}/repository/${app}/install" ]] &&
+    ${DOTFILES_PREFIX}/repository/${app}/install
 
-  [[ -x "./repository/${app}/settings" ]] &&
-    ./repository/${app}/settings
+  [[ -x "${DOTFILES_PREFIX}/repository/${app}/settings" ]] &&
+    ${DOTFILES_PREFIX}/repository/${app}/settings
 
-  [[ -f "./repository/${app}/rc" ]] &&
-    echo "    › Install rc file: $(cp -v ./repository/${app}/rc ~/.${app}rc)"
+  [[ -f "${DOTFILES_PREFIX}/repository/${app}/rc" ]] &&
+    echo "    › Install rc file: $(cp -v ${DOTFILES_PREFIX}/repository/${app}/rc ~/.${app}rc)"
 done

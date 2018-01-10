@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+echo
+echo "› iTerm2:"
+echo "  › Install"
+if brew cask list | egrep -q '^iterm2$'; then
+  echo "    › Already installed"
+  exit
+fi
+
+brew cask install iterm2
