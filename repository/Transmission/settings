@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 echo "  › Settings"
 echo "    › Hide the donate message"
 defaults write org.m0k.transmission WarningDonate -bool false
