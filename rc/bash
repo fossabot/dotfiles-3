@@ -1,4 +1,5 @@
 # Environment {
+
 unset PATH # PATH reset
 export PATH="${HOME}/.bin:/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/sbin"
 
@@ -170,9 +171,7 @@ complete -cf man
 . /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion
 . /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion
 
-for bcfile in $(ls -1 /usr/local/etc/bash_completion.d/*); do
-  source "${bcfile}"
-done
+. /usr/local/etc/bash_completion
 ## }
 
 # Aliases

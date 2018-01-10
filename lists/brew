@@ -5,6 +5,7 @@ apr-util
 arcanist
 axel
 bash
+bash-completion
 bazel
 checksum
 curl
