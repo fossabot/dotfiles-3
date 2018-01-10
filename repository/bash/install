@@ -5,7 +5,7 @@ set -euo pipefail
 # shellcheck source=lib/output
 . ${DOTFILES_PREFIX}/lib/output
 
-h1 "bash:"
+h1 "bash"
 h2 "Install"
 
 if brew list | egrep -q '^(bash(-completion)?)$'; then
