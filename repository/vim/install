@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+echo
+echo "› vim:"
+echo "  › Install"
+
+if brew list | egrep -q '^vim$'; then
+  echo "    › Already installed"
+  exit
+fi
+
+brew install vim

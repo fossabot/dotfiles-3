@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# Install Homebrew
+if ! which brew >/dev/null 2>&1; then
+  ./repository/Homebrew/install
+fi
+
+for app in $(ls -1 repository); do
+  [[ -x "./repository/${app}/install" ]] &&
+    ./repository/${app}/install
+
+  [[ -x "./repository/${app}/settings" ]] &&
+    ./repository/${app}/settings
+
+  [[ -f "./repository/${app}/rc" ]] &&
+    echo "    › Install rc file: $(cp -v ./repository/${app}/rc ~/.${app}rc)"
+done

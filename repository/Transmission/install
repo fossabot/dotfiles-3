@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+echo
+echo "› Transmission:"
+echo "  › Install"
+if brew cask list | egrep -q '^transmission$'; then
+  echo "    › Already installed"
+  exit
+fi
+
+brew cask install transmission

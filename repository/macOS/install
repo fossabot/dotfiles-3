@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+echo
+echo "› macOS System prefs:"

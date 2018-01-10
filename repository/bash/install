@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+echo
+echo "› bash:"
+echo "  › Install"
+
+if brew list | egrep -q '^(bash(-completion)?)$'; then
+  echo "    › Already installed"
+  exit
+fi
+
+brew install bash bash-completion

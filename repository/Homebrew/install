@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+echo
+echo "› Homebrew:"
+echo "  › Install"
+
+if which brew >/dev/null 2>&1; then
+  echo "    › Already installed"
+  exit 0
+fi
+
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/bbf4a3a8b247c7dba159c3d557cc3853dd764171/install)"

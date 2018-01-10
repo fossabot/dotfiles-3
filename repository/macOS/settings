@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+echo "  › Settings"
+
+echo "    › Set the Finder prefs for showing a few different volumes on the Desktop"
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+
+echo "    › Disable the warning when changing a file extension"
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+echo "    › Use AirDrop over every interface"
+defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
+
+echo "    › Turn off keyboard illumination when computer is not used for 5 minutes"
+defaults write com.apple.BezelServices kDimTime -int 300
+
+echo "    › Require password immediately after sleep or screen saver begins"
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+echo "    › Disable Dashboard"
+defaults write com.apple.dashboard mcx-disabled -bool true
+
+echo "    › Disable smart quotes and smart dashes as they're annoying when typing code"
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+echo "    › Avoid the creation of .DS_Store files on network volumes"
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+echo "    › Set dark interface style"
+defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
+
+echo "    › Show battery percent"
+defaults write com.apple.menuextra.battery ShowPercent -bool true
+
+echo "    › Removing duplicates in the 'Open With' menu"
+/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister \
+  -kill -r -domain local -domain system -domain user
+
+echo "    › Display full POSIX path as Finder window title"
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+echo "    › Prevent Time Machine from prompting to use new hard drives as backup volume"
+defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
