@@ -2,9 +2,13 @@
 
 set -euo pipefail
 
-echo "  › Settings"
-echo "    › Hide the donate message"
+# shellcheck source=lib/output
+. ${DOTFILES_PREFIX}/lib/output
+
+h2 "Settings"
+
+h3 "Hide the donate message"
 defaults write org.m0k.transmission WarningDonate -bool false
 
-echo "    › Hide the legal disclaimer"
+h3 "Hide the legal disclaimer"
 defaults write org.m0k.transmission WarningLegal -bool false

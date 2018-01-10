@@ -2,5 +2,7 @@
 
 set -euo pipefail
 
-echo
-echo "› macOS System prefs:"
+# shellcheck source=lib/output
+. ${DOTFILES_PREFIX}/lib/output
+
+h1 "macOS System prefs"

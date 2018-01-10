@@ -2,11 +2,14 @@
 
 set -euo pipefail
 
-echo
-echo "› Transmission:"
-echo "  › Install"
+# shellcheck source=lib/output
+. ${DOTFILES_PREFIX}/lib/output
+
+h1 "Transmission"
+h2 "Install"
+
 if brew cask list | egrep -q '^transmission$'; then
-  echo "    › Already installed"
+  h3 "Already installed"
   exit
 fi
 

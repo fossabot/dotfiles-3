@@ -2,31 +2,34 @@
 
 set -euo pipefail
 
-echo "  › Settings"
+# shellcheck source=lib/output
+. ${DOTFILES_PREFIX}/lib/output
 
-echo "    › Set git user name"
+h2 "Settings"
+
+h3 "Set git user name"
 git config --global user.name "Igor Shishkin"
 
-echo "    › Set git user email"
+h3 "Set git user email"
 git config --global user.email "me@teran.ru"
 
-echo "    › Set git default signing key"
+h3 "Set git default signing key"
 git config --global user.signingkey "1DCED2E4"
 
-echo "    › Set git to sign commits by default"
+h3 "Set git to sign commits by default"
 git config --global commit.gpgsign "true"
 
-echo "    › Set alias for git l"
+h3 "Set alias for git l"
 git config --global alias.l log
 
-echo "    › Set alias for git ll"
+h3 "Set alias for git ll"
 git config --global alias.ll "log --graph --show-signature"
 
-echo "    › Set alias for git lll"
+h3 "Set alias for git lll"
 git config --global alias.lll "log --raw --graph --show-signature"
 
-echo "    › Set alias for git diff"
+h3 "Set alias for git diff"
 git config --global alias.diff "diff --word-diff"
 
-echo "    › Set alias for git cm"
+h3 "Set alias for git cm"
 git config --global alias.cm "commit --gpg-sign=1DCED2E4"

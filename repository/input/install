@@ -2,5 +2,7 @@
 
 set -euo pipefail
 
-echo
-echo "› input:"
+# shellcheck source=lib/output
+. ${DOTFILES_PREFIX}/lib/output
+
+h1 "input"

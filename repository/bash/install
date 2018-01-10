@@ -2,12 +2,14 @@
 
 set -euo pipefail
 
-echo
-echo "› bash:"
-echo "  › Install"
+# shellcheck source=lib/output
+. ${DOTFILES_PREFIX}/lib/output
+
+h1 "bash:"
+h2 "Install"
 
 if brew list | egrep -q '^(bash(-completion)?)$'; then
-  echo "    › Already installed"
+  h3 "Already installed"
   exit
 fi
 

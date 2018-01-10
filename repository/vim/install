@@ -2,12 +2,14 @@
 
 set -euo pipefail
 
-echo
-echo "› vim:"
-echo "  › Install"
+# shellcheck source=lib/output
+. ${DOTFILES_PREFIX}/lib/output
+
+h1 "vim"
+h2 "Install"
 
 if brew list | egrep -q '^vim$'; then
-  echo "    › Already installed"
+  h3 "Already installed"
   exit
 fi
 

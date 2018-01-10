@@ -2,10 +2,13 @@
 
 set -euo pipefail
 
-echo "  › Settings"
+# shellcheck source=lib/output
+. ${DOTFILES_PREFIX}/lib/output
 
-echo "    › Set custom folder to settings"
+h2 "Settings"
+
+h3 "Set custom folder to settings"
 defaults write com.googlecode.iterm2 "PrefsCustomFolder" -string "${DOTFILES_PREFIX}/repository/iTerm2/preferences"
 
-echo "    › Enable storing settings to custom folder"
+h3 "Enable storing settings to custom folder"
 defaults write com.googlecode.iterm2 "LoadPrefsFromCustomFolder" -bool true
