@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+echo "  › Settings"
+
+echo "    › Set git user name"
+git config --global user.name "Igor Shishkin"
+
+echo "    › Set git user email"
+git config --global user.email "me@teran.ru"
+
+echo "    › Set git default signing key"
+git config --global user.signingkey "1DCED2E4"
+
+echo "    › Set git to sign commits by default"
+git config --global commit.gpgsign "true"
+
+echo "    › Set alias for git l"
+git config --global alias.l log
+
+echo "    › Set alias for git ll"
+git config --global alias.ll "log --graph --show-signature"
+
+echo "    › Set alias for git lll"
+git config --global alias.lll "log --raw --graph --show-signature"
+
+echo "    › Set alias for git diff"
+git config --global alias.diff "diff --word-diff"
+
+echo "    › Set alias for git cm"
+git config --global alias.cm "commit --gpg-sign=1DCED2E4"

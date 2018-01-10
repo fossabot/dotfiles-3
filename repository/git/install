@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+echo
+echo "› git:"
+echo "  › Install"
+
+if brew list | egrep -q '^git$'; then
+  echo "    › Already installed"
+  exit
+fi
+
+brew install git
