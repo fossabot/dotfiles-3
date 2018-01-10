@@ -184,6 +184,7 @@ alias re='source ~/.bashrc'
 alias ep="${EDITOR} ~/.bashrc"
 alias t='traceroute'
 alias t6='traceroute6'
+alias pubkey='pbcopy < ~/.ssh/id_rsa.pub | echo "> SSH public key copied to clipboard"'
 
 google() {
   query="$@"
