@@ -18,7 +18,7 @@ h3 "Set git to sign commits by default"
 git config --global commit.gpgsign "true"
 
 h3 "Set alias for git l"
-git config --global alias.l log
+git config --global alias.l "log --graph --pretty=format:\"%C(black bold)%h%C(reset) %C(red)%G? %C(reset)%s %C(yellow)(%cd) %C(green)%an%C(reset)\""
 
 h3 "Set alias for git ll"
 git config --global alias.ll "log --graph --show-signature"
