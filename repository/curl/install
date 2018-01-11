@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# shellcheck source=lib/output
+. ${DOTFILES_PREFIX}/lib/output
+
+h1 "curl"
+h2 "Install"
+
+if brew list | egrep -q '^curl$'; then
+  h3 "Already installed"
+  exit
+fi
+
+brew install curl
