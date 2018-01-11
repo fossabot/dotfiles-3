@@ -11,6 +11,9 @@ export DOTFILES_PREFIX=$(dirname $(perl -MCwd -e 'print Cwd::abs_path shift' "$0
 # shellcheck source=lib/brew
 . "${DOTFILES_PREFIX}/lib/brew"
 
+h1 "Enable sudo for current process run"
+sudo -v
+
 # Install Homebrew
 if ! isBrewInstalled; then
   h1 "Preconfiguration"
