@@ -5,8 +5,6 @@ set -euo pipefail
 # shellcheck source=lib/output
 . ${DOTFILES_PREFIX}/lib/output
 
-h2 "Settings"
-
 h3 "Set git user name"
 git config --global user.name "Igor Shishkin"
 

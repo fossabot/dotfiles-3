@@ -5,8 +5,6 @@ set -euo pipefail
 # shellcheck source=lib/output
 . ${DOTFILES_PREFIX}/lib/output
 
-h2 "Settings"
-
 h3 "Set the Finder prefs for showing a few different volumes on the Desktop"
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true

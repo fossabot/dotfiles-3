@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-set -euo pipefail
-
-# shellcheck source=lib/output
-. ${DOTFILES_PREFIX}/lib/output
-
-h1 "macOS System prefs"

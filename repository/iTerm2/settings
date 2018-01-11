@@ -5,8 +5,6 @@ set -euo pipefail
 # shellcheck source=lib/output
 . ${DOTFILES_PREFIX}/lib/output
 
-h2 "Settings"
-
 h3 "Set custom folder to settings"
 defaults write com.googlecode.iterm2 "PrefsCustomFolder" -string "${DOTFILES_PREFIX}/repository/iTerm2/preferences"
 

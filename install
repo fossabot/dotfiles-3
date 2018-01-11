@@ -14,12 +14,20 @@ if ! which brew >/dev/null 2>&1; then
 fi
 
 for app in $(ls -1 ${DOTFILES_PREFIX}/repository); do
-  [[ -x "${DOTFILES_PREFIX}/repository/${app}/install" ]] &&
+  h1 "${app}"
+
+  if [[ -x "${DOTFILES_PREFIX}/repository/${app}/install" ]]; then
+    h2 "Install"
     ${DOTFILES_PREFIX}/repository/${app}/install
+  fi
 
-  [[ -x "${DOTFILES_PREFIX}/repository/${app}/settings" ]] &&
+  if [[ -x "${DOTFILES_PREFIX}/repository/${app}/settings" ]]; then
+    h2 "Settings"
     ${DOTFILES_PREFIX}/repository/${app}/settings
+  fi
 
-  [[ -f "${DOTFILES_PREFIX}/repository/${app}/rc" ]] &&
-    h3 "Install rc file: $(cp -v ${DOTFILES_PREFIX}/repository/${app}/rc ~/.${app}rc)"
+  if [[ -f "${DOTFILES_PREFIX}/repository/${app}/rc" ]]; then
+    h2 "rc file"
+    h3 "$(cp -v ${DOTFILES_PREFIX}/repository/${app}/rc ~/.${app}rc)"
+  fi
 done
