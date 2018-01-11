@@ -14,4 +14,5 @@ if ! isAppInstalled python; then
   installApp python
 fi
 
-sudo pip2 install Pygments
+h4 "Pygments"
+sudo pip2 -q --no-cache-dir install Pygments
