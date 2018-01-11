@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+isAppInstalled() {
+  if mas list | egrep -q "^(\d+)\s+$1\s+\(\d+\.\d+\)\$"; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+installAppByID() {
+  mas install "${1}"
+}
+
+installApp() {
+  APP_ID=$(mas search "$1" | egrep "^(\d+)\s+$1\$" | awk '{print $1}')
+
+  installAppByID "${APP_ID}"
+}
