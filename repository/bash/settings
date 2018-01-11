@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# shellcheck source=lib/output
+. ${DOTFILES_PREFIX}/lib/output
+
+# shellcheck source=lib/output
+. ${DOTFILES_PREFIX}/lib/brew
+
+h3 "Install bashrc dependencies"
+
+if ! isAppInstalled python; then
+  installApp python
+fi
+
+sudo pip2 install Pygments
