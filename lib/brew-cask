@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+isAppInstalled() {
+  if brew cask list | egrep -q "^${1}\$"; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+installApp() {
+  brew cask install ${1}
+}

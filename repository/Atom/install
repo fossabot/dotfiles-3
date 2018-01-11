@@ -5,12 +5,15 @@ set -euo pipefail
 # shellcheck source=lib/output
 . ${DOTFILES_PREFIX}/lib/output
 
-if brew cask list | egrep -q '^atom$'; then
+# shellcheck source=lib/brew-cask
+. ${DOTFILES_PREFIX}/lib/brew-cask
+
+if isAppInstalled atom; then
   h3 "Already installed"
   exit
 fi
 
-brew cask install atom
+installApp atom
 
 apm install \
   atom-gpg \

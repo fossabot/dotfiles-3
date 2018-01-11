@@ -5,9 +5,12 @@ set -euo pipefail
 # shellcheck source=lib/output
 . ${DOTFILES_PREFIX}/lib/output
 
-if brew cask list | egrep -q '^iterm2$'; then
+# shellcheck source=lib/brew-cask
+. ${DOTFILES_PREFIX}/lib/brew-cask
+
+if isAppInstalled iterm2; then
   h3 "Already installed"
   exit
 fi
 
-brew cask install iterm2
+installApp iterm2
