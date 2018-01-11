@@ -48,6 +48,15 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 h4 "Display full POSIX path as Finder window title"
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
+h4 "Disable the crash reporter"
+defaults write com.apple.CrashReporter DialogType -string "none"
+
+h4 "Set the icon size of Dock items to 48 pixels"
+defaults write com.apple.dock tilesize -int 48
+
+h4 "Don't show Dashboard as a Space"
+defaults write com.apple.dock dashboard-in-overlay -bool true
+
 h3 "Safari"
 
 h4 "Show the full URL in the address bar (note: this still hides the scheme)"
