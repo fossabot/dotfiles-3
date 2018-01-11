@@ -3,7 +3,7 @@
 set -euo pipefail
 
 h1() {
-  echo "› ${1}:"
+  echo "› ${1}"
 }
 
 h2() {
