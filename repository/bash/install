@@ -5,9 +5,13 @@ set -euo pipefail
 # shellcheck source=lib/output
 . ${DOTFILES_PREFIX}/lib/output
 
-if brew list | egrep -q '^(bash(-completion)?)$'; then
+# shellcheck source=lib/brew
+. ${DOTFILES_PREFIX}/lib/brew
+
+if isAppInstalled "(bash(-completion)?)"; then
   h3 "Already installed"
   exit
 fi
 
-brew install bash bash-completion
+installApp bash
+installApp bash-completion

@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+isBrewInstalled() {
+  if which brew >/dev/null 2>&1; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+isAppInstalled() {
+  if brew list | egrep -q "^${1}\$"; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+installApp() {
+  brew install ${1}
+}

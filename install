@@ -8,8 +8,13 @@ export DOTFILES_PREFIX=$(dirname $(perl -MCwd -e 'print Cwd::abs_path shift' "$0
 # shellcheck source=lib/output
 . "${DOTFILES_PREFIX}/lib/output"
 
+# shellcheck source=lib/brew
+. "${DOTFILES_PREFIX}/lib/brew"
+
 # Install Homebrew
-if ! which brew >/dev/null 2>&1; then
+if ! isBrewInstalled; then
+  h1 "Preconfiguration"
+  h2 "Installing Homebrew for further actions"
   ${DOTFILES_PREFIX}/repository/Homebrew/install
 fi
 

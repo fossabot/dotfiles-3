@@ -5,9 +5,12 @@ set -euo pipefail
 # shellcheck source=lib/output
 . ${DOTFILES_PREFIX}/lib/output
 
-if brew list | egrep -q '^curl$'; then
+# shellcheck source=lib/brew
+. ${DOTFILES_PREFIX}/lib/brew
+
+if isAppInstalled curl; then
   h3 "Already installed"
   exit
 fi
 
-brew install curl
+installApp curl
