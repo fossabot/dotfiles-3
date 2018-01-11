@@ -260,6 +260,14 @@ function docker-cleanup() {
   docker run --rm -v /var/run/docker.sock:/var/run/docker.sock spotify/docker-gc
 }
 
+function json() {
+  if [ -t 0 ]; then # argument
+    python -mjson.tool <<<"$*" | pygmentize -l javascript
+  else # pipe
+    python -mjson.tool | pygmentize -l javascript
+  fi
+}
+
 # Prompt
 export PS1="\`if [ \$? = 0 ]; then echo \[\e[33m\]^_^ \[\e[0m\]; else echo \[\e[31m\]o_O \[\e[0m\]; fi\`[\[$Yellow\]\u\[$Red\]@\[$Yellow\]\h\[$Color_Off\]\[$Red\]|\[$BIBlue\]\`date '+%H:%M:%S'\` \[$Yellow\]\w\[$Color_Off\]]\\$ "
 
