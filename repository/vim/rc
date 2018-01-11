@@ -16,6 +16,7 @@ set ffs=unix,dos,mac
 set fencs=utf-8,cp1251,koi8-r,ucs-2,cp866
 set ruler
 set nu
+set backspace=indent,eol,start
 color jellybeans
 
 autocmd FileType make setlocal noexpandtab
