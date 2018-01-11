@@ -21,7 +21,12 @@ h4 "Use AirDrop over every interface"
 defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
 
 h4 "Minimize apps to the same icon as in dock"
-defaults write com.apple.dock minimize-to-application 1
+defaults write com.apple.dock minimize-to-application -bool true
+
+h4 "Automatically hide Dock"
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock autohide-delay -float 0.25
+defaults write com.apple.dock autohide-time-modifier -float 0.25
 
 h4 "Set dark interface style"
 defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
