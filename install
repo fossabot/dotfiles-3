@@ -5,6 +5,9 @@ set -euo pipefail
 # Since there's no `readlink -f` behaviour using perl/python is the only way to achieve full path
 export DOTFILES_PREFIX=$(dirname $(perl -MCwd -e 'print Cwd::abs_path shift' "$0"))
 
+# shellcheck source=preferences
+. "${DOTFILES_PREFIX}/preferences"
+
 # shellcheck source=lib/output
 . "${DOTFILES_PREFIX}/lib/output"
 

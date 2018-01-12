@@ -6,13 +6,13 @@ set -euo pipefail
 . ${DOTFILES_PREFIX}/lib/output
 
 h3 "Set git user name"
-git config --global user.name "Igor Shishkin"
+git config --global user.name "${PREFERENCES_FULLNAME}"
 
 h3 "Set git user email"
-git config --global user.email "me@teran.ru"
+git config --global user.email "${PREFERENCES_EMAIL}"
 
 h3 "Set git default signing key"
-git config --global user.signingkey "1DCED2E4"
+git config --global user.signingkey "${PREFERENCES_GPG_KEY_ID}"
 
 h3 "Set git to sign commits by default"
 git config --global commit.gpgsign "true"
@@ -30,4 +30,4 @@ h3 "Set alias for git diff"
 git config --global alias.diff "diff --word-diff"
 
 h3 "Set alias for git cm"
-git config --global alias.cm "commit --gpg-sign=1DCED2E4"
+git config --global alias.cm "commit --gpg-sign=${PREFERENCES_GPG_KEY_ID}"
