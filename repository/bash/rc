@@ -3,8 +3,6 @@
 unset PATH # PATH reset
 export PATH="${HOME}/.bin:/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/sbin"
 
-#export PATH="${PATH}:/Users/teran/Downloads/google-cloud-sdk/bin"
-
 export EDITOR=$(which vim)
 export VISUAL="${EDITOR}"
 export SVN_EDITOR="$EDITOR"
