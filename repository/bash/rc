@@ -188,21 +188,28 @@ echo -e $Color_Off
 echo
 
 ## bash-completions {
-complete -W "$(echo $(cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["))" ssh
-complete -W "$(echo $(cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["))" s
-complete -W "$(echo $(cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["))" p
-complete -W "$(echo $(cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["))" ping
-complete -W "$(echo $(cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["))" p6
-complete -W "$(echo $(cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["))" ping6
-complete -W "$(echo $(cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["))" host
-complete -W "$(echo $(cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["))" ssh-tunnel
+if [[ -f ~/ssh/known_hosts ]]; then
+  complete -W "$(echo $(cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["))" ssh
+  complete -W "$(echo $(cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["))" s
+  complete -W "$(echo $(cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["))" p
+  complete -W "$(echo $(cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["))" ping
+  complete -W "$(echo $(cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["))" p6
+  complete -W "$(echo $(cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["))" ping6
+  complete -W "$(echo $(cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["))" host
+  complete -W "$(echo $(cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["))" ssh-tunnel
+fi
+
 complete -cf sudo
 complete -cf man
-. /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion
-. /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion
-. /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion
+if [[ -d "/Applications/Docker.app" ]]; then
+  . /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion
+  . /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion
+  . /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion
+fi
 
-. /usr/local/etc/bash_completion
+if [[ -f "/usr/local/etc/bash_completion" ]]; then
+  . /usr/local/etc/bash_completion
+fi
 ## }
 
 # Aliases
