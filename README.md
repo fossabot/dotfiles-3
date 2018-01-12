@@ -8,5 +8,5 @@ Run
 ---
 
 ```
-./install $classs
+./install $class
 ```
