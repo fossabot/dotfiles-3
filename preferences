@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 export PREFERENCES_FULLNAME="Igor Shishkin"
 export PREFERENCES_EMAIL="me@teran.ru"
 export PREFERENCES_GPG_KEY_ID="1DCED2E4"
