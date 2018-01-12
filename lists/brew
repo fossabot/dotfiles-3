@@ -54,11 +54,14 @@ readline
 ruby
 shellcheck
 smartmontools
+speedtest-cli
 sqlite
+sqlmap
 subversion
 telnet
 unixodbc
 unrar
+vim
 watch
 wget
 xz
