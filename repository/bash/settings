@@ -14,8 +14,8 @@ h4 "$(sudo chsh -s /usr/local/bin/bash ${PREFERENCES_SYSTEM_USERNAME} 2>&1 | xar
 
 h3 "Install bashrc dependencies"
 
-if ! isAppInstalled python; then
-  installApp python
+if ! brewIsAppInstalled python; then
+  brewInstallApp python
 fi
 
 h4 "Pygments"

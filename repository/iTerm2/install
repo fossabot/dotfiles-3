@@ -8,9 +8,9 @@ set -euo pipefail
 # shellcheck source=lib/brew-cask
 . ${DOTFILES_PREFIX}/lib/brew-cask
 
-if isAppInstalled iterm2; then
+if caskIsAppInstalled iterm2; then
   h3 "Already installed"
   exit
 fi
 
-installApp iterm2
+caskInstallApp iterm2

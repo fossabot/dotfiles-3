@@ -8,9 +8,9 @@ set -euo pipefail
 # shellcheck source=lib/brew
 . ${DOTFILES_PREFIX}/lib/brew
 
-if isAppInstalled git; then
+if brewIsAppInstalled git; then
   h3 "Already installed"
   exit
 fi
 
-installApp git
+brewInstallApp git

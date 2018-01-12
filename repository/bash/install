@@ -8,10 +8,10 @@ set -euo pipefail
 # shellcheck source=lib/brew
 . ${DOTFILES_PREFIX}/lib/brew
 
-if isAppInstalled "(bash(-completion)?)"; then
+if brewIsAppInstalled "(bash(-completion)?)"; then
   h3 "Already installed"
   exit
 fi
 
-installApp bash
-installApp bash-completion
+brewInstallApp bash
+brewInstallApp bash-completion

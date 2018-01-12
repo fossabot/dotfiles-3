@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-isAppInstalled() {
+masIsAppInstalled() {
   if mas list | egrep -q "^(\d+)\s+$1\s+\(\d+\.\d+\)\$"; then
     return 0
   else
@@ -10,7 +10,7 @@ isAppInstalled() {
   fi
 }
 
-isAppInstalledByID() {
+masIsAppInstalledByID() {
   if mas list | awk '{print $1}' | egrep -q "^$1\$"; then
     return 0
   else
@@ -18,11 +18,11 @@ isAppInstalledByID() {
   fi
 }
 
-installAppByID() {
+masInstallAppByID() {
   mas install "${1}"
 }
 
-installApp() {
+masInstallApp() {
   APP_ID=$(mas search "$1" | egrep "^(\d+)\s+$1\$" | awk '{print $1}')
 
   installAppByID "${APP_ID}"

@@ -5,7 +5,10 @@ set -euo pipefail
 # shellcheck source=lib/output
 . ${DOTFILES_PREFIX}/lib/output
 
-if which brew >/dev/null 2>&1; then
+# shellcheck source=lib/brew
+. ${DOTFILES_PREFIX}/lib/brew
+
+if isBrewInstalled; then
   h3 "Already installed"
   exit 0
 fi

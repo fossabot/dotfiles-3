@@ -8,9 +8,9 @@ set -euo pipefail
 # shellcheck source=lib/brew-cask
 . ${DOTFILES_PREFIX}/lib/brew-cask
 
-if isAppInstalled transmission; then
+if caskIsAppInstalled transmission; then
   h3 "Already installed"
   exit
 fi
 
-installApp transmission
+caskInstallApp transmission

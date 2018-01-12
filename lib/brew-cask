@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-isAppInstalled() {
+caskIsAppInstalled() {
   if brew cask list | egrep -q "^${1}\$"; then
     return 0
   else
@@ -10,6 +10,6 @@ isAppInstalled() {
   fi
 }
 
-installApp() {
+caskInstallApp() {
   brew cask install ${1}
 }

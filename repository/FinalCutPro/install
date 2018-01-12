@@ -12,11 +12,11 @@ set -euo pipefail
 # 434290957 Motion (5.4)
 # 424389933 Final Cut Pro (10.4)
 
-if isAppInstalledByID 424389933 && isAppInstalledByID 434290957 && isAppInstalledByID 424390742; then
+if masIsAppInstalledByID 424389933 && masIsAppInstalledByID 434290957 && masIsAppInstalledByID 424390742; then
   h3 "Already installed"
   exit
 fi
 
-installAppByID 424389933
-installAppByID 434290957
-installAppByID 424390742
+masInstallAppByID 424389933
+masInstallAppByID 434290957
+masInstallAppByID 424390742

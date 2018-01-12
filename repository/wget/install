@@ -8,9 +8,9 @@ set -euo pipefail
 # shellcheck source=lib/brew
 . ${DOTFILES_PREFIX}/lib/brew
 
-if isAppInstalled wget; then
+if brewIsAppInstalled wget; then
   h3 "Already installed"
   exit
 fi
 
-installApp wget
+brewInstallApp wget
