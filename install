@@ -28,6 +28,8 @@ else
   exit 1
 fi
 
+h1 "Using class ${CLASS}"
+
 h1 "Enable sudo for current process run"
 sudo -v
 
