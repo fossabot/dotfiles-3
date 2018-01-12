@@ -8,6 +8,10 @@ set -euo pipefail
 # shellcheck source=lib/output
 . ${DOTFILES_PREFIX}/lib/brew
 
+h3 "Switch system shell to just installed one"
+
+h4 "$(sudo chsh -s /usr/local/bin/bash ${PREFERENCES_SYSTEM_USERNAME} 2>&1 | xargs)"
+
 h3 "Install bashrc dependencies"
 
 if ! isAppInstalled python; then
