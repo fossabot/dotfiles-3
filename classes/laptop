@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+export APPS=(
+  "Atom"
+  "bash"
+  "curl"
+  "FinalCutPro"
+  "git"
+  "input"
+  "iTerm2"
+  "macOS"
+  "Transmission"
+  "vim"
+  "wget"
+)

@@ -14,6 +14,20 @@ export DOTFILES_PREFIX=$(dirname $(perl -MCwd -e 'print Cwd::abs_path shift' "$0
 # shellcheck source=lib/brew
 . "${DOTFILES_PREFIX}/lib/brew"
 
+if [[ -z "${1-}" ]]; then
+  CLASS="laptop"
+else
+  CLASS="${1}"
+fi
+
+if [[ -f "${DOTFILES_PREFIX}/classes/${CLASS}" ]]; then
+  # shellcheck source=classes
+  . "${DOTFILES_PREFIX}/classes/${CLASS}"
+else
+  echo "Class ${CLASS} is not available"
+  exit 1
+fi
+
 h1 "Enable sudo for current process run"
 sudo -v
 
@@ -24,7 +38,7 @@ if ! isBrewInstalled; then
   ${DOTFILES_PREFIX}/repository/Homebrew/install
 fi
 
-for app in $(ls -1 ${DOTFILES_PREFIX}/repository); do
+for app in "${APPS[@]}"; do
   h1 "${app}"
 
   if [[ -x "${DOTFILES_PREFIX}/repository/${app}/install" ]]; then
