@@ -1,12 +1,5 @@
 # Environment {
 
-unset PATH # PATH reset
-export PATH="${HOME}/.bin:/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/sbin"
-
-export EDITOR=$(which vim)
-export VISUAL="${EDITOR}"
-export SVN_EDITOR="$EDITOR"
-
 export LANGUAGE="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
@@ -32,8 +25,15 @@ export HISTCONTROL="ignoreboth:erasedups"
 export HISTFILESIZE="1000000000"
 export HISTSIZE="1000000"
 
-export GOPATH=~/Documents/Development/gopath
-export PATH="${GOPATH}/bin:${PATH}"
+BREW_PREFIX=$(brew --prefix)
+export BREW_PREFIX
+
+unset PATH # PATH reset
+export PATH="${HOME}/.bin:${BREW_PREFIX}/bin:/bin:/sbin:/usr/bin:/usr/sbin:${BREW_PREFIX}/sbin"
+
+export EDITOR="${BREW_PREFIX}/bin/vim"
+export VISUAL="${EDITOR}"
+export SVN_EDITOR="$EDITOR"
 # }
 
 clear
@@ -188,11 +188,11 @@ echo -e $Color_Off
 echo
 
 ## aliases {
-alias s="/usr/local/bin/ssh"
+alias s="${BREW_PREFIX}/bin/ssh"
 alias p="/sbin/ping"
 alias p6="/sbin/ping6"
-alias te="/usr/local/bin/telnet"
-alias te6='/usr/local/bin/telnet -6'
+alias te="${BREW_PREFIX}/bin/telnet"
+alias te6='${BREW_PREFIX}/bin/telnet -6'
 alias re='source ~/.bashrc'
 alias ep='${EDITOR} ~/.bashrc'
 alias t="/usr/sbin/traceroute"
@@ -265,8 +265,9 @@ if [[ -d "/Applications/Docker.app" ]]; then
   . /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion
 fi
 
-if [[ -f "/usr/local/etc/bash_completion" ]]; then
-  . /usr/local/etc/bash_completion
+if [[ -f "${BREW_PREFIX}/etc/bash_completion" ]]; then
+  # shellcheck source=${BREW_PREFIX}/etc/bash_completion
+  . "${BREW_PREFIX}/etc/bash_completion"
 fi
 ## }
 
