@@ -274,6 +274,8 @@ fi
 
 # Prompt
 export PS1="\[${IBlue}\]\`date '+%H:%M:%S'\` \[${Red}\]\w\[${Color_Off}\]› "
+export PS2="› "
+export PS4='$0.$LINENO+ '
 
 ## Homebrew {
 export HOMEBREW_NO_ANALYTICS="1"
