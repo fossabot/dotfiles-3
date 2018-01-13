@@ -247,6 +247,10 @@ function json() {
     python -mjson.tool | pygmentize -l javascript
   fi
 }
+
+function preview() {
+  qlmanage -p "$*" >&/dev/null
+}
 ## }
 
 ## bash-completions {
