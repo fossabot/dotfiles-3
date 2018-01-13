@@ -158,9 +158,9 @@ shopt -s histverify
 
 # CPU {
 echo -e $Red
-echo -n '> '
+echo -n '› '
 echo -e $Red
-echo -n '> '
+echo -n '› '
 echo -en $Yellow
 echo -n "CPU: "
 echo -en $Color_Off
@@ -168,7 +168,7 @@ echo -n $(sysctl -n machdep.cpu.brand_string)
 # }
 # Date Time {
 echo -e $Red
-echo -n '> '
+echo -n '› '
 echo -en $Yellow
 echo -n "Now: "
 echo -en $Color_Off
@@ -176,13 +176,13 @@ echo -n $NOW
 # }
 # Uptime {
 echo -e $Red
-echo -n '> '
+echo -n '› '
 echo -en $Yellow
 echo -n "Uptime: "
 echo -en $Color_Off
 echo $UPTIME
 echo -en $Red
-echo -n '> '
+echo -n '› '
 echo -e $Color_Off
 # }
 echo
@@ -197,7 +197,7 @@ alias re='source ~/.bashrc'
 alias ep='${EDITOR} ~/.bashrc'
 alias t="/usr/sbin/traceroute"
 alias t6="/usr/sbin/traceroute6"
-alias pubkey='pbcopy < ~/.ssh/id_rsa.pub | echo "> SSH public key copied to clipboard"'
+alias pubkey='pbcopy < ~/.ssh/id_rsa.pub | echo "› SSH public key copied to clipboard"'
 
 google() {
   query="${*}"
@@ -272,7 +272,7 @@ fi
 ## }
 
 # Prompt
-export PS1="\[${IBlue}\]\`date '+%H:%M:%S'\` \[${Red}\]\w\[${Color_Off}\]> "
+export PS1="\[${IBlue}\]\`date '+%H:%M:%S'\` \[${Red}\]\w\[${Color_Off}\]› "
 
 ## Homebrew {
 export HOMEBREW_NO_ANALYTICS="1"
