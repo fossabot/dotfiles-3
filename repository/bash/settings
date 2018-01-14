@@ -12,6 +12,11 @@ h3 "Switch system shell to just installed one"
 
 h4 "$(sudo chsh -s /usr/local/bin/bash ${PREFERENCES_SYSTEM_USERNAME} 2>&1 | xargs)"
 
+h4 "Install bashrc preferences"
+cat <<EOF >~/.bashrc_preferences
+PREFERENCES_USE_WELCOME_MESSAGE=${PREFERENCES_USE_WELCOME_MESSAGE}
+EOF
+
 h3 "Install bashrc dependencies"
 
 if ! brewIsAppInstalled python; then

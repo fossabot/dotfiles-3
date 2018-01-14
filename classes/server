@@ -3,8 +3,11 @@
 set -euo pipefail
 
 export APPS=(
+  "bash"
   "curl"
   "input"
   "vim"
   "wget"
 )
+
+export PREFERENCES_USE_WELCOME_MESSAGE="no"
