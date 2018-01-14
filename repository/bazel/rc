@@ -1,0 +1,2 @@
+# Configure tests - increase timeout, print errors and timeout warnings
+test --verbose_failures=true --test_output=all

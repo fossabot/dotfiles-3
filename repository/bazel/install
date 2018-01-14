@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# shellcheck source=lib/output
+. ${DOTFILES_PREFIX}/lib/output
+
+# shellcheck source=lib/brew
+. ${DOTFILES_PREFIX}/lib/brew
+
+if brewIsAppInstalled bazel; then
+  h3 "Already installed"
+  exit
+fi
+
+brewInstallApp bazel

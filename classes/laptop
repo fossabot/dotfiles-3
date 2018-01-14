@@ -5,6 +5,7 @@ set -euo pipefail
 export APPS=(
   "Atom"
   "bash"
+  "bazel"
   "curl"
   "FinalCutPro"
   "git"
