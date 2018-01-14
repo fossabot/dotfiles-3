@@ -314,5 +314,5 @@
 
 # Set hostname to title if neccessary
 if [[ "${PREFERENCES_HOSTNAME_IN_TITLE}" == "yes" ]]; then
-  title "${HOSTNAME}:$(basename ${0})"
+  title "${HOSTNAME}:shell"
 fi
