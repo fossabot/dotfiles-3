@@ -15,6 +15,7 @@ h4 "$(sudo chsh -s /usr/local/bin/bash ${PREFERENCES_SYSTEM_USERNAME} 2>&1 | xar
 h4 "Install bashrc preferences"
 cat <<EOF >~/.bashrc_preferences
 PREFERENCES_USE_WELCOME_MESSAGE=${PREFERENCES_USE_WELCOME_MESSAGE}
+PREFERENCES_HOSTNAME_IN_TITLE=${PREFERENCES_HOSTNAME_IN_TITLE}
 EOF
 
 h3 "Install bashrc dependencies"

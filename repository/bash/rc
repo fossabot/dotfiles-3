@@ -240,7 +240,7 @@
   }
 
   function title() {
-    echo -e "\e]0;[$1]\a"
+    echo -en "\e]0;[$1]\a"
   }
 
   function restartui() {
@@ -311,3 +311,8 @@
   export HOMEBREW_NO_INSECURE_REDIRECT="1"
   # export HOMEBREW_CASK_OPTS="--require-sha"
 }
+
+# Set hostname to title if neccessary
+if [[ "${PREFERENCES_HOSTNAME_IN_TITLE}" == "yes" ]]; then
+  title "${HOSTNAME}:$(basename ${0})"
+fi
