@@ -1,2 +1,2 @@
-# Configure tests - increase timeout, print errors and timeout warnings
+# Configure tests - print errors and be more verbose on `bazel test`
 test --verbose_failures=true --test_output=all
