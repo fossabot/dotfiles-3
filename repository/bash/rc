@@ -230,6 +230,10 @@
   alias t6="/usr/sbin/traceroute6"
   alias pubkey='pbcopy < ~/.ssh/id_rsa.pub | echo "› SSH public key copied to clipboard"'
 
+  function arc-cleanup-branches() {
+    git branch -a | awk '{print $1}' | egrep '^arcpatch-' | xargs git branch -D
+  }
+
   function google() {
     query="${*}"
     open "https://encrypted.google.com/search?client=bash&rls=en&q=${query}&ie=UTF-8&oe=UTF-8" -a "Safari"
