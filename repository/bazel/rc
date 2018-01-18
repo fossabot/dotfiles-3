@@ -1,2 +1,3 @@
-# Configure tests - print errors and be more verbose on `bazel test`
+startup --max_idle_secs=3600
+build  --verbose_failures=true
 test --verbose_failures=true --test_output=all
