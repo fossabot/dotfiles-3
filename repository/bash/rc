@@ -52,7 +52,7 @@
 
 # Update path with GO settings
 {
-  export GOPATH=~/Documents/Development/gopath
+  export GOPATH=/usr/local/Gopath
   export PATH="${GOPATH}/bin:${PATH}"
 }
 
