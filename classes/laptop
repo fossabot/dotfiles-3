@@ -11,6 +11,7 @@ export APPS=(
   "git"
   "input"
   "iTerm2"
+  "iWork"
   "macOS"
   "Server"
   "Transmission"
