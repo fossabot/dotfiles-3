@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# shellcheck source=lib/output
+. ${DOTFILES_PREFIX}/lib/output
+
+# shellcheck source=lib/mas
+. ${DOTFILES_PREFIX}/lib/mas
+
+# 883878097 Server (5.4)
+APPID="883878097"
+
+if masIsAppInstalledByID "${APPID}"; then
+  h3 "Already installed"
+  exit
+fi
+
+masInstallAppByID "${APPID}"
