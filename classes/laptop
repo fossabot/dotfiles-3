@@ -12,6 +12,7 @@ export APPS=(
   "input"
   "iTerm2"
   "macOS"
+  "Server"
   "Transmission"
   "vim"
   "wget"

@@ -8,6 +8,7 @@ export APPS=(
   "input"
   "vim"
   "wget"
+  "Server"
 )
 
 export PREFERENCES_USE_WELCOME_MESSAGE="no"
