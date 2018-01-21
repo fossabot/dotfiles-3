@@ -11,12 +11,15 @@ set -euo pipefail
 # 424390742 Compressor (4.4)
 # 434290957 Motion (5.4)
 # 424389933 Final Cut Pro (10.4)
+CompressorID="424390742"
+MotionID="434290957"
+FCPID="424389933"
 
-if masIsAppInstalledByID 424389933 && masIsAppInstalledByID 434290957 && masIsAppInstalledByID 424390742; then
+if masIsAppInstalledByID "${CompressorID}" && masIsAppInstalledByID "${MotionID}" && masIsAppInstalledByID "${FCPID}"; then
   h3 "Already installed"
   exit
 fi
 
-masInstallAppByID 424389933
-masInstallAppByID 434290957
-masInstallAppByID 424390742
+masInstallAppByID "${CompressorID}"
+masInstallAppByID "${MotionID}"
+masInstallAppByID "${FCPID}"
