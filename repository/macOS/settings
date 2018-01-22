@@ -5,11 +5,30 @@ set -euo pipefail
 # shellcheck source=lib/output
 . ${DOTFILES_PREFIX}/lib/output
 
+h3 "System time settings"
+
+h4 "$(sudo systemsetup -settimezone Europe/Moscow)"
+
+h4 "$(sudo systemsetup -setusingnetworktime on)"
+
+h4 "$(sudo systemsetup -setnetworktimeserver time.apple.com)"
+
 h3 "Finder, Dock & Appearance"
+
+h4 "Enable tap to click on trackpad for this user and for the login screen"
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 h4 "Set the Finder prefs for showing a few different volumes on the Desktop"
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+
+h4 "Set scrollbars to appear/hide automatically"
+defaults write NSGlobalDomain AppleShowScrollBars -string "Automatic"
+
+h4 "Automatically quit printer app once the print jobs complete"
+defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 
 h4 "Disable Dashboard"
 defaults write com.apple.dashboard mcx-disabled -bool true
